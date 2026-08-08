@@ -12,3 +12,30 @@ export async function getHealth() {
 
   return response.json();
 }
+
+export type ChatResponse = {
+  response: string;
+};
+
+export async function sendMessage(
+  message: string,
+): Promise<ChatResponse> {
+  const response = await fetch(
+    `${API_BASE_URL}/api/v1/chat`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message,
+      }),
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to send message");
+  }
+
+  return response.json();
+}

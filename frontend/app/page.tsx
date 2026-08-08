@@ -1,48 +1,78 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 
-import { getHealth } from "@/lib/api";
-
-type HealthResponse = {
-  status: string;
-  service: string;
-};
+import { sendMessage } from "@/lib/api";
 
 export default function Home() {
-  const [health, setHealth] = useState<HealthResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState("");
+  const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    async function checkBackend() {
-      try {
-        const data = await getHealth();
-        setHealth(data);
-      } catch (error) {
-        setError("Backend connection failed");
-      }
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!message.trim()) {
+      return;
     }
 
-    checkBackend();
-  }, []);
+    setLoading(true);
+    setResponse("");
+
+    try {
+      const data = await sendMessage(message);
+
+      setResponse(data.response);
+    } catch (error) {
+      setResponse("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <div className="text-center">
+    <main className="flex min-h-screen items-center justify-center p-8">
+      <div className="w-full max-w-2xl">
         <h1 className="text-3xl font-bold">
           SupportAI
         </h1>
 
-        {health && (
-          <p className="mt-4">
-            Backend: {health.status}
-          </p>
-        )}
+        <p className="mt-2 text-gray-600">
+          AI Customer Support Assistant
+        </p>
 
-        {error && (
-          <p className="mt-4">
-            {error}
-          </p>
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8"
+        >
+          <textarea
+            value={message}
+            onChange={(event) =>
+              setMessage(event.target.value)
+            }
+            placeholder="How can we help you?"
+            className="min-h-32 w-full rounded-lg border p-4"
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="mt-4 rounded-lg px-6 py-3 text-white bg-black disabled:opacity-50"
+          >
+            {loading ? "Thinking..." : "Send"}
+          </button>
+        </form>
+
+        {response && (
+          <div className="mt-8 rounded-lg border p-6">
+            <h2 className="font-semibold">
+              SupportAI
+            </h2>
+
+            <p className="mt-3 whitespace-pre-wrap">
+              {response}
+            </p>
+          </div>
         )}
       </div>
     </main>
