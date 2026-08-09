@@ -14,10 +14,12 @@ export async function getHealth() {
 }
 
 export type ChatResponse = {
+  conversation_id: string;
   response: string;
 };
 
 export async function sendMessage(
+  conversationId: string,
   message: string,
 ): Promise<ChatResponse> {
   const response = await fetch(
@@ -28,6 +30,7 @@ export async function sendMessage(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        conversation_id: conversationId,
         message,
       }),
     },
