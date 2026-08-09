@@ -3,6 +3,7 @@ from app.services.conversation import (
     get_history,
 )
 from app.services.llm import generate_response
+from app.services.rag.retriever import retrieve_context
 
 
 def process_chat(
@@ -16,8 +17,9 @@ def process_chat(
     )
 
     history = get_history(conversation_id)
+    context = retrieve_context(message)
 
-    response = generate_response(history)
+    response = generate_response(history, context)
 
     add_message(
         conversation_id,
