@@ -1,7 +1,7 @@
 from google import genai
 
 from app.core.config import settings
-from typing import TypedDict
+from app.models.message import Message
 
 
 client = genai.Client(
@@ -19,11 +19,6 @@ Your responsibilities:
 - Never invent company policies, prices, refunds, or other business information.
 - Do not claim that you performed an action unless you actually performed it.
 """
-
-
-class Message(TypedDict):
-    role: str
-    content: str
     
 
 
