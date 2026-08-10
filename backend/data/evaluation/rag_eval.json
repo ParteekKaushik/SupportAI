@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "question": "What is AcmeStore's refund window for physical goods?",
+    "ground_truth": "Customers have exactly 30 calendar days from the documented date of carrier delivery to initiate a refund request.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 2,
+    "question": "Are digital products refundable?",
+    "ground_truth": "Digital products, software keys, downloadable media, and AcmeStore Virtual Gift Cards are non-refundable once the asset link has been generated or the code has been emailed, except where required by local consumer protection laws.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 3,
+    "question": "What happens if a physical product is returned without its original packaging?",
+    "ground_truth": "The product must be returned in its pristine original manufacturer packaging with its internal packaging components to qualify for a full refund.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 4,
+    "question": "How long does AcmeStore take to release a card refund?",
+    "ground_truth": "AcmeStore releases authorized card refund funds within 48 business hours of the final inventory inspection. The customer may then have to wait 5 to 10 business days for the funds to appear, depending on the financial institution.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 5,
+    "question": "How long do PayPal and Apple Pay refunds generally take to appear?",
+    "ground_truth": "Refunds sent to PayPal or Apple Pay generally appear within 24 hours of approval.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 6,
+    "question": "What is the restocking fee for buyer's remorse?",
+    "ground_truth": "A buyer's remorse return is subject to a 15% restocking fee plus shipping costs.",
+    "expected_source": "refunds.md",
+    "type": "direct"
+  },
+  {
+    "id": 7,
+    "question": "How long does a customer have to send a return after generating the shipping label?",
+    "ground_truth": "The return parcel must be scanned into the carrier's network within seven business days of label generation.",
+    "expected_source": "returns.md",
+    "type": "direct"
+  },
+  {
+    "id": 8,
+    "question": "What happens after AcmeStore receives a returned package?",
+    "ground_truth": "The package enters an automated sorting queue. Quality control technicians inspect it within 72 business hours and assign a grading classification that determines the final processing.",
+    "expected_source": "returns.md",
+    "type": "direct"
+  },
+  {
+    "id": 9,
+    "question": "What happens to a Grade F returned product?",
+    "ground_truth": "A Grade F product is considered deficient or damaged by the user. The return is denied and the product is shipped back to the customer at the customer's expense.",
+    "expected_source": "returns.md",
+    "type": "direct"
+  },
+  {
+    "id": 10,
+    "question": "How long does standard warehouse processing take?",
+    "ground_truth": "Orders submitted Monday through Friday are processed within 24 to 48 operational hours.",
+    "expected_source": "shipping.md",
+    "type": "direct"
+  },
+  {
+    "id": 11,
+    "question": "How long does Standard Ground shipping take?",
+    "ground_truth": "Standard Ground shipping is estimated to take 3 to 7 business days.",
+    "expected_source": "shipping.md",
+    "type": "direct"
+  },
+  {
+    "id": 12,
+    "question": "What should I do if my tracking says delivered but I cannot find my package?",
+    "ground_truth": "The customer should check secondary entrance areas, patios, back porches, and leasing offices; check with household members or neighbors; and wait another 24 hours because carriers may mark packages as delivered early. If the package is still missing after 48 hours, the customer should contact AcmeStore Support to initiate an investigation.",
+    "expected_source": "shipping.md",
+    "type": "multi_step"
+  },
+  {
+    "id": 13,
+    "question": "How long does a lost package investigation take?",
+    "ground_truth": "A lost package investigation takes 5 to 7 business days.",
+    "expected_source": "shipping.md",
+    "type": "direct"
+  },
+  {
+    "id": 14,
+    "question": "Can expedited shipping be used for P.O. Boxes?",
+    "ground_truth": "No. Only Standard Ground shipping can deliver to United States Postal Service P.O. Boxes because expedited and priority tiers use private carriers.",
+    "expected_source": "shipping.md",
+    "type": "reasoning"
+  },
+  {
+    "id": 15,
+    "question": "How long can military shipments take to arrive?",
+    "ground_truth": "Shipments to APO, FPO, and DPO addresses can take up to 45 calendar days.",
+    "expected_source": "shipping.md",
+    "type": "direct"
+  },
+  {
+    "id": 16,
+    "question": "What support channels does AcmeStore provide?",
+    "ground_truth": "AcmeStore provides live chat and conversational AI, telephonic voice support, and an electronic mail helpdesk.",
+    "expected_source": "support.md",
+    "type": "direct"
+  },
+  {
+    "id": 17,
+    "question": "What is the first-response SLA for the email helpdesk?",
+    "ground_truth": "The email helpdesk has a first-response SLA of within 12 business hours.",
+    "expected_source": "support.md",
+    "type": "direct"
+  },
+  {
+    "id": 18,
+    "question": "What should a customer do if a refund is missing after the banking window has expired?",
+    "ground_truth": "The customer should check with the issuing bank or credit card company, contact the AcmeStore Billing Escalations Unit, provide the Order ID and RMA tracking token, and AcmeStore can provide an Acquirer Reference Number within 24 hours.",
+    "expected_source": "refunds.md",
+    "type": "multi_step"
+  },
+  {
+    "id": 19,
+    "question": "Does AcmeStore offer student discounts?",
+    "ground_truth": null,
+    "expected_source": null,
+    "type": "unanswerable"
+  },
+  {
+    "id": 20,
+    "question": "What is the current price of an AcmeStore iPhone?",
+    "ground_truth": null,
+    "expected_source": null,
+    "type": "unanswerable"
+  }
+]
