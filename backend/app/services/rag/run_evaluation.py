@@ -12,10 +12,16 @@ def run_evaluation():
         question = test_case["question"]
         expected_answer = test_case["expected_answer"]
 
+        # ----------------------------------------------------
         # 1. Retrieve context
+        # ----------------------------------------------------
+
         context = retrieve_context(question)
 
+        # ----------------------------------------------------
         # 2. Generate answer
+        # ----------------------------------------------------
+
         messages = [
             {
                 "role": "user",
@@ -28,16 +34,25 @@ def run_evaluation():
             context,
         )
 
+        # ----------------------------------------------------
+        # 3. Store result
+        # ----------------------------------------------------
+
         result = {
             "question": question,
             "contexts": context,
             "answer": answer,
-            "reference": expected_answer,
+            "ground_truth": expected_answer,
         }
 
         results.append(result)
 
+        # ----------------------------------------------------
+        # 4. Display test case
+        # ----------------------------------------------------
+
         print("\n" + "=" * 70)
+
         print("QUESTION:")
         print(question)
 
